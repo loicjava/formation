@@ -46,9 +46,9 @@ public class ImplMetierSalle implements InterMetierSalle{
 	}
 
 	@Override
-	public List<Salle> getClasses() {
+	public List<Salle> getSalles() {
 		
-		return daoSalle.getClasses();
+		return daoSalle.getSalles();
 	}
 	
 	

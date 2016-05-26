@@ -47,7 +47,7 @@ public class ImplDaoSalle implements InterDaoSalle {
 	}
 
 	@Override
-	public List<Salle> getClasses() {
+	public List<Salle> getSalles() {
 		Query query=em.createQuery("from Classe");
 		log.info("La liste des salles a été chargée");
 		return query.getResultList();

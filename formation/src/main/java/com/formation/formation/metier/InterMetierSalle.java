@@ -10,6 +10,6 @@ public interface InterMetierSalle {
 	public Salle updateSalle(Salle s);
 	public Salle getSalle(Long idSalle);
 	public Salle deleteSalle(Long idSalle);
-	public List<Salle> getClasses();
+	public List<Salle> getSalles();
 
 }
