@@ -16,7 +16,7 @@
 	<!-- ************************************************************************************************ -->
 	
 	
-	Module<beans:bean id="daoEtudiant" class="com.formation.formation.dao.ImplDaoEtudiant"></beans:bean>
+	<beans:bean id="daoEtudiant" class="com.formation.formation.dao.ImplDaoEtudiant"></beans:bean>
      <beans:bean id="metierEtudiant" class="com.formation.formation.metier.ImplMetierEtudiant">
 		<beans:property name="daoEtudiant" ref="daoEtudiant"></beans:property>
 	 </beans:bean>
