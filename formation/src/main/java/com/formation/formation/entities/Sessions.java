@@ -35,7 +35,7 @@ private List<Module> listmodule;
 @ManyToOne
 @JoinColumn(name="idSalle")
 private Salle salle;
-@OneToMany(mappedBy="Etudiant")
+@OneToMany(mappedBy="sessions")
 private List<Etudiant> listetudiant;
 public Long getIdSession() {
 	return idSession;
