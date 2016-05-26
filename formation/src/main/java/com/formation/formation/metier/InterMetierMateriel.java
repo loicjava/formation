@@ -1,10 +1,10 @@
-package com.formation.formation.dao;
+package com.formation.formation.metier;
 
 import java.util.List;
 
 import com.formation.formation.entities.Materiel;
 
-public interface InterDaoMateriel {
+public interface InterMetierMateriel {
 	
 	public Materiel addMateriel(Materiel m);
 	public List<Materiel> getListMateriel();
