@@ -17,9 +17,9 @@ private Long idSalle;
 private String adresseSalle;
 private String nomSalle;
 private int capaciteSalle;
-@OneToMany(mappedBy="tabsession")
-
+@OneToMany(mappedBy="salle")
 private List<Sessions> tabsession; 
+
 public Long getIdSalle() {
 	return idSalle;
 }
