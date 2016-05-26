@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.Session;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**/
@@ -45,7 +45,7 @@ public class Etudiant {
 	
 	@ManyToOne
 	@JoinColumn(name="idEtudiant")
-	private Session session;
+	private Sessions sessions;
 	
 	
 	
@@ -61,11 +61,11 @@ public class Etudiant {
 	public void setTabExamen(List<Examen> tabExamen) {
 		this.tabExamen = tabExamen;
 	}
-	public Session getSession() {
-		return session;
+	public Sessions getSessions() {
+		return sessions;
 	}
-	public void setSession(Session session) {
-		this.session = session;
+	public void setSessions(Sessions sessions) {
+		this.sessions = sessions;
 	}
 	public Long getIdEtudiant() {
 		return idEtudiant;

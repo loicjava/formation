@@ -16,7 +16,7 @@ public class ImplMetierMateriel implements InterMetierMateriel {
 
 	public void setDaoMateriel(InterMetierMateriel daoMateriel) {
 		this.daoMateriel = daoMateriel;
-		log.info("dao metier injected");
+		log.info("dao materiel injected");
 	}
 	
 
