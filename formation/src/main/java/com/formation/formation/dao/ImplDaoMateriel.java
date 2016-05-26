@@ -49,7 +49,6 @@ public class ImplDaoMateriel implements InterDaoMateriel{
 	@Override
 	public Materiel getMateriel(Long idMateriel) {
 		Materiel m = em.find(Materiel.class, idMateriel);
-		em.remove(m);
 		log.info(m.getIdMateriel()+" a bien été selectionné.");
 		return m;
 	}
