@@ -34,7 +34,7 @@
 	 </beans:bean>
 	 <beans:bean id="daoModule" class="com.formation.formation.dao.ImplDAOModule"></beans:bean>
      <beans:bean id="metierModule" class="com.formation.formation.metier.ImplMetierModule">
-		<beans:property name="daoModule" ref="daoEtudiant"></beans:property>
+		<beans:property name="daoModule" ref="daoModule"></beans:property>
 	 </beans:bean>
 	 <beans:bean id="daoSalle" class="com.formation.formation.dao.ImplDaoSalle"></beans:bean>
      <beans:bean id="metierSalle" class="com.formation.formation.metier.ImplMetierSalle">
