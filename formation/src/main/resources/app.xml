@@ -14,20 +14,33 @@
 	<!-- ************************************************************************************************ -->
 	
 	<!-- ************************************************************************************************ -->
-	<!--  <context:component-scan base-package="com.gestionDesCrepes.gestionDesCrepes.entitis" />
-	<context:component-scan base-package="com.gestionDesCrepes.gestionDesCrepes.Dao" />
-	<context:component-scan base-package="com.gestionDesCrepes.gestionDesCrepes.metier" /> -->
-	<!-- ************************************************************************************************ -->
 	
-	<!-- ************************************************************************************************ -->
 	
-	<!-- ************************************************************************************************ -->
-	
-	<!-- ************************************************************************************************ -->
-    <!--  <beans:bean id="daoClient" class="com.gestionDesCrepes.gestionDesCrepes.Dao.ClientImplDao"></beans:bean>
-     <beans:bean id="metierClient" class="com.gestionDesCrepes.gestionDesCrepes.metier.ClientMetierImpl">
-		<beans:property name="dao" ref="daoClient"></beans:property>
-	 </beans:bean> --> 
+	Module<beans:bean id="daoEtudiant" class="com.formation.formation.dao.ImplDaoEtudiant"></beans:bean>
+     <beans:bean id="metierEtudiant" class="com.formation.formation.metier.ImplMetierEtudiant">
+		<beans:property name="daoEtudiant" ref="daoEtudiant"></beans:property>
+	 </beans:bean>
+	 <beans:bean id="daoExamen" class="com.formation.formation.dao.ImplDaoExamen"></beans:bean>
+     <beans:bean id="metierExamen" class="com.formation.formation.metier.ImplMetierExamen">
+		<beans:property name="daoExamen" ref="daoExamen"></beans:property>
+	 </beans:bean>
+	 <beans:bean id="daoMateriel" class="com.formation.formation.dao.ImplDaoMateriel"></beans:bean>
+     <beans:bean id="metierMateriel" class="com.formation.formation.metier.ImplMetierMateriel">
+		<beans:property name="daoMateriel" ref="daoMateriel"></beans:property>
+	 </beans:bean>
+	 <beans:bean id="daoModule" class="com.formation.formation.dao.ImplDAOModule"></beans:bean>
+     <beans:bean id="metierModule" class="com.formation.formation.metier.ImplMetierModule">
+		<beans:property name="daoModule" ref="daoEtudiant"></beans:property>
+	 </beans:bean>
+	 <beans:bean id="daoSalle" class="com.formation.formation.dao.ImplDaoSalle"></beans:bean>
+     <beans:bean id="metierSalle" class="com.formation.formation.metier.ImplMetierSalle">
+		<beans:property name="daoSalle" ref="daoSalle"></beans:property>
+	 </beans:bean>
+	 <beans:bean id="daoSessions" class="com.formation.formation.dao.ImplDAOSession"></beans:bean>
+     <beans:bean id="metierSessions" class="com.formation.formation.metier.ImplMetierSessions">
+		<beans:property name="daoSessions" ref="daoSessions"></beans:property>
+	 </beans:bean>
+	 
 	<!-- ************************************************************************************************ -->
 	
 	<!-- ************************************************************************************************ -->
