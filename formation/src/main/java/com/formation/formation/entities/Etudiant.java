@@ -37,7 +37,8 @@ public class Etudiant {
 	private String specialiteEtudiant;
 	
 	
-	@OneToMany(mappedBy="etudiant")
+	@OneToMany
+	@JoinColumn(name="idEtudiant")
 	private List<Materiel> tabMateriel = new ArrayList<Materiel>();
 	
 	@OneToMany(mappedBy="etudiant")
