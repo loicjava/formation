@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.formation.formation.dao.InterDaoMateriel;
 import com.formation.formation.entities.Materiel;
 
 @Transactional
@@ -12,9 +13,9 @@ public class ImplMetierMateriel implements InterMetierMateriel {
 	
 	Logger log = Logger.getLogger("ImplMetierMateriel");
 	
-	private InterMetierMateriel daoMateriel;
+	private InterDaoMateriel daoMateriel;
 
-	public void setDaoMateriel(InterMetierMateriel daoMateriel) {
+	public void setDaoMateriel(InterDaoMateriel daoMateriel) {
 		this.daoMateriel = daoMateriel;
 		log.info("dao materiel injected");
 	}
