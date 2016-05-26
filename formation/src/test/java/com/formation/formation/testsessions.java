@@ -43,14 +43,14 @@ public class testsessions {
 		context.close();
 	}
 
-	@Test
+	/*@Test
 	public void testAddSession() {
 		
 		Sessions s=new Sessions("nomSession", new Date(), new Date());
 		metierSessions.addSession(s, 1L);
 		List<Sessions> list=metierSessions.getListSession();
 		assertTrue(list.size()>0);
-	}
+	}*/
 
 	@Test
 	public void testUpdateSession() {

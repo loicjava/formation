@@ -29,12 +29,12 @@ public class TestMetierSalle {
 		context.close();
 	}
 
-	/*@Test
+	@Test
 	public void testAddSalle() {
 		Salle s=new Salle("adresse1", "Salle 1", 20);
 		metierSalle.addSalle(s);
 		assertNotNull(s.getIdSalle());
-	}*/
+	}
 
 	@Test
 	public void testUpdateSalle() {
@@ -49,13 +49,13 @@ public class TestMetierSalle {
 		assertEquals(metierSalle.getSalle(1L).getCapaciteSalle(), 20);
 	}
 
-	@Test
+	/*@Test
 	public void testDeleteSalle() {
 		List<Salle> tab1=metierSalle.getSalles();
 		metierSalle.deleteSalle(1L);
 		List<Salle> tab2=metierSalle.getSalles();
 		assertTrue(tab2.size()+1==tab1.size());
-	}
+	}*/
 
 	@Test
 	public void testGetSalles() {
