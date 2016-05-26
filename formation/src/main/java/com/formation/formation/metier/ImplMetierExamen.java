@@ -12,6 +12,12 @@ public class ImplMetierExamen implements InterMetierExamen{
 	Logger log = Logger.getLogger("ImplMetierExamen");
 	
 	private InterDaoExamen daoExamen;
+	
+	
+	public void setDaoExamen(InterDaoExamen daoExamen) {
+		this.daoExamen = daoExamen;
+		log.info("dao injected");
+	}
 
 	@Override
 	public Examen addExamen(Examen ex, Long idEtudiant) {
