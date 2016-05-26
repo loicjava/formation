@@ -51,6 +51,10 @@ public List<Sessions> getTabsession() {
 public void setTabsession(List<Sessions> tabsession) {
 	this.tabsession = tabsession;
 }
+
+public Salle() {
+	super();
+}
 public Salle(String adresseSalle, String nomSalle, int capaciteSalle) {
 	super();
 	this.adresseSalle = adresseSalle;
