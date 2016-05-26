@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 import org.hibernate.Session;
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**/
+
 @Entity
 public class Etudiant {
 	
