@@ -1,5 +1,6 @@
 package com.formation.formation.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,7 +13,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Salle {
+public class Salle implements Serializable{
+	
+	private static final long serialVersionUID = -2895808874724283360L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long idSalle;

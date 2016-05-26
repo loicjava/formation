@@ -1,5 +1,6 @@
 package com.formation.formation.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @XmlRootElement
-public class Etudiant {
+public class Etudiant implements Serializable {
+	
+	private static final long serialVersionUID = 8091849860721263494L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

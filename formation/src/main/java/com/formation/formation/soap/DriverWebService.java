@@ -8,7 +8,7 @@ public class DriverWebService {
 
 		String url="http://localhost:8090/";
 		Endpoint.publish(url,new ClasseSoap());
-		Endpoint.publish(url,new MaterielSoap());
+		//Endpoint.publish(url,new MaterielSoap());
 		System.out.println(url);
 		
 		//http://localhost:8090/formation/ClasseSoap?wsdl

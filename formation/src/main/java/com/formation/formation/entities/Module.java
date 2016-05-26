@@ -1,5 +1,7 @@
 package com.formation.formation.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Module {
+public class Module implements Serializable{
+	
+	private static final long serialVersionUID = 2734395434246371460L;
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long idModule;
