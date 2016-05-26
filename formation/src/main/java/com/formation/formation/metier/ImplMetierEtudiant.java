@@ -3,10 +3,12 @@ package com.formation.formation.metier;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.formation.dao.InterDaoEtudiant;
 import com.formation.formation.entities.Etudiant;
 
+@Transactional
 public class ImplMetierEtudiant implements InterMetierEtudiant{
 	
 	Logger log = Logger.getLogger("ImplMetierEtudiant");
@@ -48,6 +50,13 @@ public class ImplMetierEtudiant implements InterMetierEtudiant{
 		daoEtudiant.addMaterielToEtudiant(idMateriel, idEtudiant);
 		
 	}
+
+	@Override
+	public Etudiant getEtudiant(Long idEtudiant) {
+		return daoEtudiant.getEtudiant(idEtudiant);
+	}
+	
+	
 	
 	
 

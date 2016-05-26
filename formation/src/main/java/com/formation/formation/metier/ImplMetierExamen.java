@@ -3,10 +3,12 @@ package com.formation.formation.metier;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.formation.dao.InterDaoExamen;
 import com.formation.formation.entities.Examen;
 
+@Transactional
 public class ImplMetierExamen implements InterMetierExamen{
 	
 	Logger log = Logger.getLogger("ImplMetierExamen");
@@ -42,6 +44,12 @@ public class ImplMetierExamen implements InterMetierExamen{
 
 		daoExamen.deleteExamen(idExamen);
 		
+	}
+
+	@Override
+	public Examen getExamen(Long idExamen) {
+		
+		return daoExamen.getExamen(idExamen);
 	}
 	
 	

@@ -11,5 +11,6 @@ public interface InterDaoExamen {
 	public List<Examen> getListExamen();
 	public Examen updateExamen(Examen ex);
 	public void deleteExamen(Long idExamen);
+	public Examen getExamen(Long idExamen);
 
 }

@@ -11,5 +11,6 @@ public interface InterDaoEtudiant {
 	public Etudiant updateEtudiant(Etudiant et);
 	public void deleteEtudiant(Long idEtudiant);
 	public void addMaterielToEtudiant(Long idMateriel, Long idEtudiant);
+	public Etudiant getEtudiant(Long idEtudiant);
 
 }

@@ -61,4 +61,10 @@ public class ImplDaoEtudiant implements InterDaoEtudiant{
 		
 	}
 
+	@Override
+	public Etudiant getEtudiant(Long idEtudiant) {
+		Etudiant query = (Etudiant) em.createQuery("from Etudiant e where e.idEtudiant ="+idEtudiant).getSingleResult();
+		return query;
+	}
+
 }
