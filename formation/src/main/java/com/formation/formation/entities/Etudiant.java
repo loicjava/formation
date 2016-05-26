@@ -45,7 +45,7 @@ public class Etudiant {
 	private List<Examen> tabExamen = new ArrayList<Examen>();
 	
 	@ManyToOne
-	@JoinColumn(name="idEtudiant")
+	@JoinColumn(name="idSessions")
 	private Sessions sessions;
 	
 	
