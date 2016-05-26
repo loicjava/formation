@@ -23,13 +23,14 @@ public class ImplDaoExamen implements InterDaoExamen{
 	public Examen addExamen(Examen ex, Long idEtudiant) {
 		Etudiant et = em.find(Etudiant.class, idEtudiant);
 		ex.setEtudiant(et);
+		em.persist(ex);
 		log.info(ex.getIdExamen()+" a bien été ajouté.");
 		return ex;
 	}
 
 	@Override
 	public List<Examen> getListExamen() {
-		Query query = em.createQuery("frome Examen e");
+		Query query = em.createQuery("from Examen e");
 		log.info("La liste Examen est là.");
 		return query.getResultList();
 	}
@@ -46,6 +47,12 @@ public class ImplDaoExamen implements InterDaoExamen{
 		Examen ex = em.find(Examen.class, idExamen);
 		em.remove(ex);
 		log.info(ex.getIdExamen()+" a bien été supprimé.");
+	}
+
+	@Override
+	public Examen getExamen(Long idExamen) {
+		Examen query = (Examen) em.createQuery("from Examen e where e.idExamen ="+idExamen).getSingleResult();
+		return query;
 	}
 
 
