@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form>
+		<h:inputText value="#{adel.m.nomModule}" type="text"/>
+		<h:inputText value="#{adel.m.dureeModule}" type="text"/>
+		<h:inputText value="#{adel.m.description}" type="text"/>
+		<p:commandButton value="save" actionListener="#{adel.addM()}"></p:commandButton>
+	</h:form>
+</h:body>
+</html>
