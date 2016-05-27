@@ -28,12 +28,12 @@ public class TestMetierMateriel {
 		context.close();
 	}
 
-	@Test
+	/*@Test
 	public void testAddMateriel() {
 		Materiel m=new Materiel("ordi", "bon");
 		metierMateriel.addMateriel(m);
 		assertNotNull(m.getIdMateriel());
-	}
+	}*/
 
 	@Test
 	public void testGetListMateriel() {

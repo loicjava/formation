@@ -33,7 +33,7 @@ public class TestMetierEtudiant {
 		context.close();
 	}
 
-	/*@Test
+	@Test
 	public void testAddEtudiant() {
 		Etudiant et1 = new Etudiant("Blanche", "Neige", new Date(), "0111111111", "blancheneige@gmail.com", "10 rue des bois", "Java");
 		Etudiant et2 = new Etudiant("Rose", "Rouge", new Date(), "0222222222", "roserouge@gmail.com", "3 rue de la forêt", "Html");
@@ -61,14 +61,14 @@ public class TestMetierEtudiant {
 	}
 	
 	
-	@Test
+	/*@Test
 	public void testDeleteEtudiant() {
 		int ancien = metierEtudiant.getListEtudiant().size();
 		metierEtudiant.deleteEtudiant(1L);
 		int nouveau = metierEtudiant.getListEtudiant().size();
 		assertTrue(ancien>nouveau); //FONCTIONNE
 		
-	}
+	}*/
 	
 	
 	@Test
@@ -79,13 +79,13 @@ public class TestMetierEtudiant {
 		
 	}
 	
-	*@Test
+	@Test
 	public void testGetEtudiant() {
 		
 		Etudiant et = metierEtudiant.getEtudiant(1L);
 		assertNotNull(et.getIdEtudiant()); //FONCTIONNE
 		
-	}*/
+	}
 	
 
 }

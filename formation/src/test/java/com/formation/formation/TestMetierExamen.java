@@ -31,7 +31,7 @@ public class TestMetierExamen {
 		context.close();
 	}
 
-	/*@Test
+	@Test
 	public void testAddExamen() {
 		Examen ex1 = new Examen("Quiz1",new Date(),20d);
 		metierExamen.addExamen(ex1, 2L);
@@ -52,13 +52,13 @@ public class TestMetierExamen {
 		assertTrue(temp.getNomExamen().equals("Test Ultime")); //FONCTIONNE
 	}
 	
-	@Test
+	/*@Test
 	public void testDeleteExamen() {
 		int ancien = metierExamen.getListExamen().size();
 		metierExamen.deleteExamen(2L);
 		int nouveau = metierExamen.getListExamen().size();
 		assertTrue(ancien>nouveau); //FONCTIONNE
-	}
+	}*/
 	
 	
 	@Test
@@ -66,6 +66,6 @@ public class TestMetierExamen {
 		Examen ex = metierExamen.getExamen(1L);
 		assertNotNull(ex.getIdExamen()); //FONCTIONNE
 		
-	}*/
+	}
 
 }
