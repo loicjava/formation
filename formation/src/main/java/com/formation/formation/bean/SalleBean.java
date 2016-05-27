@@ -26,7 +26,7 @@ public class SalleBean implements Serializable{
 	private static final long serialVersionUID = -599706657477041434L;
 
 	@Autowired
-	private static InterMetierSalle metierSalle;
+	private  InterMetierSalle metierSalle;
 	
 	private Salle s=new Salle();
 	private Long idSalle;
@@ -62,6 +62,7 @@ public class SalleBean implements Serializable{
 		listSalle = metierSalle.getSalles();
 		return listSalle;
 	}
+	
 	
 	
 
