@@ -7,14 +7,16 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import com.formation.formation.entities.Module;
+import com.formation.formation.entities.Salle;
 import com.formation.formation.metier.InterMetierModule;
 
 
 @Controller
-@ManagedBean(name="moduleBean")
+@Component("moduleBean")
 @SessionScoped
 public class ModuleBean {
 	
@@ -51,7 +53,25 @@ public class ModuleBean {
 	}
 	
 	/*************Methode****************/
+	public void addM(){
+		metierModule.addModule(this.module);
+	}
 	
+	public List<Module> getModules(){
+		tabModule = metierModule.getListModule();
+		return tabModule;
+	}
+	public void suppS(){
+		module.setIdModule(null);
+		metierModule.deleteModule(idModule);
+	}
+	public void uppS(){
+		metierModule.updateModule(module);
+	}
+	public void getS(Long id){
+		idModule=id;
+		module=metierModule.getModule(idModule);
+	}
 	
 
 }

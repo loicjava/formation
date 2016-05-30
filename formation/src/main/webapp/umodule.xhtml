@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+ <h1><h:outputText value="modifier salle" /></h1>
+		<br/><br/>
+		
+		<h:form id="form">
+			<p:accordionPanel style="width:600px;">
+				<p:tab title="modifier salle #{ss.s.idSalle}">
+					<table>
+					<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Adresse :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="adresseSalle" value="#{ss.s.adresseSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Nom :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="nomSalle" value="#{ss.s.nomSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Capacite :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="capaciteSalle" value="#{ss.s.capaciteSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton value="Modifier"  action="salle?faces-redirect=true" actionListener="#{ss.uppS()}" ajax="true" />
+								</div>
+							</td>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton type="reset" value="Rétablir" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</p:tab>
+			</p:accordionPanel>
+			</h:form>
+			
+
+			
+</h:body>
+</html>
