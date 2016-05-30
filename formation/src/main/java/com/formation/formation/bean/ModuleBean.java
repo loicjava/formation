@@ -31,7 +31,7 @@ public class ModuleBean {
 	
 	public Module getModule() {
 		return module;
-	}
+	} 
 	public void setModule(Module module) {
 		this.module = module;
 	}
