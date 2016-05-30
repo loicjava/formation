@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,7 +43,7 @@ private List<Module> listmodule;
 @ManyToOne
 @JoinColumn(name="idSalle")
 private Salle salle;
-@OneToMany(mappedBy="sessions")
+@OneToMany(mappedBy="sessions",cascade=CascadeType.REMOVE)
 private List<Etudiant> listetudiant;
 public Long getIdSession() {
 	return idSession;

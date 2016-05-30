@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,11 +44,11 @@ public class Etudiant implements Serializable {
 	private String specialiteEtudiant;
 	
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.REMOVE)
 	@JoinColumn(name="idEtudiant")
 	private List<Materiel> tabMateriel = new ArrayList<Materiel>();
 	
-	@OneToMany(mappedBy="etudiant")
+	@OneToMany(mappedBy="etudiant",cascade=CascadeType.REMOVE)
 	private List<Examen> tabExamen = new ArrayList<Examen>();
 	
 	@ManyToOne
