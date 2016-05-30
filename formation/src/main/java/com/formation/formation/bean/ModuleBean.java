@@ -53,7 +53,7 @@ public class ModuleBean {
 	}
 	
 	/*************Methode****************/
-	public void addM(){
+	public void addM(){ 
 		metierModule.addModule(this.module);
 	}
 	
