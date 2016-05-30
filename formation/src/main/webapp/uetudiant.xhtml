@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Etudiant</title>
+</h:head>
+<h:body>
+
+	<h:form>
+	<p:accordionPanel style="width:600px;">
+			<p:tab
+				title="Changement de l'étudiant avec l'id #{beanEtudiant.etudiant.idEtudiant}">
+				<table>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Nom :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="nomEtudiant" value="#{beanEtudiant.etudiant.nomEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Prenom :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="prenomEtudiant"
+								value="#{beanEtudiant.etudiant.prenomEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Date de Naissance :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="dateNaissanceEtudiant"
+								value="#{beanEtudiant.etudiant.dateNaissanceEtudiant}">
+								<f:convertDateTime pattern="dd-MM-yyyy" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Adresse :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="adresseEtudiant"
+								value="#{beanEtudiant.etudiant.adresseEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Téléphone :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="telEtudiant" value="#{beanEtudiant.etudiant.telEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Mail :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="mailEtudiant" value="#{beanEtudiant.etudiant.mailEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Spécialité :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="specialiteEtudiant"
+								value="#{beanEtudiant.etudiant.specialiteEtudiant}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+
+
+					<tr>
+						<td style="width: 300px; padding-top: 15px;">
+							<div align="center">
+								<p:commandButton value="Update"
+									actionListener="#{beanEtudiant.updateEtu()}" ajax="true"
+									action="etudiant?faces-redirect=true" />
+							</div>
+						</td>
+						<td style="width: 300px; padding-top: 15px;">
+							<div align="center">
+								<p:commandButton value="Retour"
+									action="etudiant?faces-redirect=true" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+ 
+
+
+</h:body>
+</h:html>

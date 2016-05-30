@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Etudiant</title>
+</h:head>
+<h:body>
+
+	<br />
+	<h1>
+		<h:outputText value="Ajout d'un Etudiant" />
+	</h1>
+	<br />
+
+	<h:form>
+		<h:panelGrid columns="4" cellpadding="5">
+
+			<h:outputLabel for="nometu" value="Nom :" style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.nomEtudiant}" />
+
+			<h:outputLabel for="prenometu" value="Prenom :"
+				style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.prenomEtudiant}" />
+
+			<h:outputLabel for="dateetu" value="Date de naissance :"
+				style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.dateNaissanceEtudiant}">
+				<f:convertDateTime pattern="dd-MM-yyyy" />
+			</p:inputText>
+
+			<h:outputLabel for="adresseetu" value="Adresse :"
+				style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.adresseEtudiant}" />
+
+			<h:outputLabel for="teletu" value="Téléphone :"
+				style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.telEtudiant}" />
+
+			<h:outputLabel for="mailetu" value="Mail :" style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.mailEtudiant}" />
+
+			<h:outputLabel for="specialiteetu" value="Spécialité :"
+				style="font-weight:bold" />
+			<p:inputText value="#{beanEtudiant.etudiant.specialiteEtudiant}" />
+
+
+			<p:commandButton value="Ajouter" action="#{beanEtudiant.addEtu()}"
+				ajax="true" />
+		</h:panelGrid>
+	</h:form>
+
+	<br />
+	<br />
+	<br />
+	<h1>
+		<h:outputText value="Liste des Etudiants" />
+	</h1>
+	<br />
+
+	<p:dataTable id="liste" var="etu" value="#{beanEtudiant.getListEtu()}">
+
+		<p:column headerText="Id">
+			<h:outputText value="#{etu.idEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{etu.nomEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Prenom">
+			<h:outputText value="#{etu.prenomEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Date de naissance">
+			<h:outputText value="#{etu.dateNaissanceEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Adresse">
+			<h:outputText value="#{etu.adresseEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Téléphone">
+			<h:outputText value="#{etu.telEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Mail">
+			<h:outputText value="#{etu.mailEtudiant}" />
+		</p:column>
+
+		<p:column headerText="Spécialité">
+			<h:outputText value="#{etu.specialiteEtudiant}" />
+		</p:column> 
+
+		<p:column headerText="">
+			<p:commandButton value="Modifier" ajax="true" process="@this"
+				action="uetudiant?faces-redirect=true"
+				actionListener="#{beanEtudiant.getEtu(etu.idEtudiant)}" />
+		</p:column>
+
+		<p:column headerText="">
+			<p:commandButton value="Supprimer"
+				actionListener="#{beanEtudiant.deleteEtu(etu.idEtudiant)}"
+				ajax="true" update="liste" />
+		</p:column>
+
+	</p:dataTable>
+
+
+	<br />
+	<br />
+	<br />
+
+</h:body>
+</html>
