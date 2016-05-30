@@ -34,7 +34,7 @@ public class Etudiant implements Serializable {
 	private Long idEtudiant;
 	private String nomEtudiant;
 	private String prenomEtudiant;
-	
+	 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private Date dateNaissanceEtudiant;

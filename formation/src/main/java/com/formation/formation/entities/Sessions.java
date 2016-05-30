@@ -36,7 +36,7 @@ private String nomSession;
 private Date dateDebutSession;
 @Temporal(TemporalType.DATE)
 @DateTimeFormat(pattern="dd-MM-yyyy")
-private Date dateFinSession;
+private Date dateFinSession; 
 @ManyToMany
 @JoinTable(name="sessionmodule")
 private List<Module> listmodule; 
