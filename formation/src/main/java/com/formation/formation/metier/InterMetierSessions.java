@@ -2,6 +2,7 @@ package com.formation.formation.metier;
 
 import java.util.List;
 
+import com.formation.formation.entities.Module;
 import com.formation.formation.entities.Sessions;
 
 public interface InterMetierSessions {
@@ -11,4 +12,5 @@ public interface InterMetierSessions {
 	public List<Sessions>getListSession();
 	public Sessions deleteSession(Long idSession);
 	public void addModuletoSession(Long idSession,Long idModule);
+	public List<Module>getListSesMod(Long idSession);
 }

@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 
 
+
 import com.formation.formation.entities.Module;
 import com.formation.formation.entities.Salle;
 import com.formation.formation.entities.Sessions;
@@ -60,6 +61,13 @@ public class ImplDAOSession implements InterDAOSessions{
 		s.getListmodule().add(m);
 		em.merge(s);
 		
+	}
+
+	@Override
+	public List<Module> getListSesMod(Long idSession) {
+		Query req=(Query) em.createQuery("select s.listmodule from Sessions s where s.idSession = :x");
+		req.setParameter("x", idSession);
+		return req.getResultList();
 	}
 
 

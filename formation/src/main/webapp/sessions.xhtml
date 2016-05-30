@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Materiel</title>
+</h:head>
+<h:body>
+
+	<h:form id="form">
+		<p:accordionPanel style="width:600px;">
+			<p:tab title="Ajout d'une session">
+				<table>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Nom :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputText
+								id="nomSession" value="#{sessionBean.sessions.nomSession}">
+								<f:validateLength minimum="3" />
+							</p:inputText></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Date de debut :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputMask
+								id="sesDebut" value="#{sessionBean.sessions.dateDebutSession}" mask="99-99-9999">
+								<f:convertDateTime pattern="dd-MM-yyyy" />
+							</p:inputMask></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Date de fin :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:inputMask
+								id="sesFin" value="#{sessionBean.sessions.dateFinSession}" mask="99-99-9999">
+								<f:convertDateTime pattern="dd-MM-yyyy" />
+							</p:inputMask></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+								value="Nom de la salle :" /></td>
+						<td style="width: 300px; padding-bottom: 10px;"><p:selectOneMenu
+								id="sesSalle" value="#{sessionBean.idSalle}"
+								style="width:125px">
+								<f:selectItem itemLabel="Choisissez une salle" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItems value="#{ss.getSalles()}" var="salle" itemValue="#{salle.idSalle}" itemLabel="#{salle.nomSalle}" />
+							</p:selectOneMenu></td>
+					</tr>
+					<tr>
+						<td style="width: 300px; padding-top: 15px;">
+							<div align="center">
+								<p:commandButton value="Ajouter"
+									actionListener="#{sessionBean.add()}" update="listSession" ajax="true" />
+							</div>
+						</td>
+						<td style="width: 300px; padding-top: 15px;">
+							<div align="center">
+								<p:commandButton type="reset" value="Rétablir" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</p:tab>
+		</p:accordionPanel>
+	</h:form>
+
+	<p:dataTable id="listSession" var="se" value="#{sessionBean.getList()}" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+							 paginator="true" rows="10" style="width:1100px;margin-bottom:20px;">
+		<p:column headerText="Id">
+			<h:outputText value="#{se.idSession}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{se.nomSession}" />
+		</p:column>
+
+		<p:column headerText="Date de debut">
+			<h:outputText value="#{se.dateDebutSession}" />
+		</p:column>
+		<p:column headerText="Date de fin">
+			<h:outputText value="#{se.dateFinSession}" />
+		</p:column>
+		<p:column headerText="Nom de la salle">
+			<h:outputText value="#{se.salle.nomSalle}" />
+		</p:column>
+		<p:column headerText="Voir/Ajouter liste des modules">
+			<p:commandButton value="Voir" ajax="true" process="@this" action="sessionsM?faces-redirect=true"  actionListener="#{sessionBean.getSes(se.idSession)}" />
+		</p:column>
+		<p:column headerText="Update">
+			<p:commandButton value="Update" ajax="true" process="@this" action="usessions?faces-redirect=true"  actionListener="#{sessionBean.getSes(se.idSession)}" />
+		</p:column>
+		<p:column headerText="Delete">
+			<p:commandButton value="Enlever" action="#{sessionBean.delete()}" ajax="true" process="@this" update="listSession">
+				<f:setPropertyActionListener target="#{sessionBean.idSession}" value="#{se.idSession}" process="@this" />
+			</p:commandButton>
+		</p:column>
+	</p:dataTable>
+
+
+
+</h:body>
+</html>

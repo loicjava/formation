@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.formation.dao.InterDAOModule;
 import com.formation.formation.dao.InterDAOSessions;
+import com.formation.formation.entities.Module;
 import com.formation.formation.entities.Sessions;
 
 @Transactional
@@ -50,6 +51,12 @@ public class ImplMetierSessions implements InterMetierSessions{
 	public void addModuletoSession(Long idSession, Long idModule) {
 		daoSessions.addModuletoSession(idSession, idModule);
 		
+	}
+
+	@Override
+	public List<Module> getListSesMod(Long idSession) {
+		
+		return daoSessions.getListSesMod(idSession);
 	}
 
 }
