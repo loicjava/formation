@@ -68,9 +68,12 @@
 		<p:column headerText="Etat">
 			<h:outputText value="#{mt.etatMateriel}" />
 		</p:column>
+		<p:column headerText="Update">
+			<p:commandButton value="Update" ajax="true" process="@this" action="umateriel?faces-redirect=true"  actionListener="#{materielBean.getMat(mt.idMateriel)}" />
+		</p:column>
 		<p:column headerText="Delete">
-			<p:commandButton value="Enlever" actionListener="#{materielBean.delete()}" ajax="true">
-				<f:setPropertyActionListener target="#{materielBean.idMateriel}" value="#{mt.idMateriel}" />
+			<p:commandButton value="Enlever" action="#{materielBean.delete()}" ajax="true" process="@this" update="listMateriel">
+				<f:setPropertyActionListener target="#{materielBean.idMateriel}" value="#{mt.idMateriel}" process="@this" />
 			</p:commandButton>
 		</p:column>
 	</p:dataTable>
