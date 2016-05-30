@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+ <h1><h:outputText value="Ajout d'une salle" /></h1>
+		<br/><br/>
+		
+		<h:form id="form">
+			<p:accordionPanel style="width:600px;">
+				<p:tab title="Ajout d'une salle">
+					<table>
+					<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Adresse :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="adresseSalle" value="#{ss.s.adresseSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Nom :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="nomSalle" value="#{ss.s.nomSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Capacite :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="capaciteSalle" value="#{ss.s.capaciteSalle}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton value="Ajouter" action="#{ss.addS()}" ajax="true" />
+								</div>
+							</td>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton type="reset" value="Rétablir" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</p:tab>
+			</p:accordionPanel>
+			</h:form>
+			
+<div align="center">
+				<p:dataTable  id="listsalles" var="newStudent" value="#{ss.getSalles()}">
+				<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{newStudent.idSalle}" />
+					</p:column>
+					
+					<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="ADRESSE" />
+						</f:facet>
+						<h:outputText value="#{newStudent.adresseSalle}" />
+					</p:column>
+					
+					<p:column style="width:150px;">
+						<f:facet name="header">
+							<h:outputText value="NOM" />
+						</f:facet>
+						<h:outputText value="#{newStudent.nomSalle}" />
+					</p:column>
+					
+					<p:column style="width:150px;">
+						<f:facet name="header">
+							<h:outputText value="CAPACITE" />
+						</f:facet>
+						<h:outputText value="#{newStudent.capaciteSalle}" />
+					</p:column>
+					<p:column headerText="Update">
+			<p:commandButton value="Update" ajax="true" process="@this" action="usalle?faces-redirect=true"  actionListener="#{ss.getS(newStudent.idSalle)}" />
+		</p:column>
+					<p:column headerText="Delete">
+			<p:commandButton value="Enlever" action="#{ss.suppS()}" ajax="true" process="@this" update="listsalles">
+				<f:setPropertyActionListener target="#{ss.idSalle}" value="#{newStudent.idSalle}" process="@this" />
+			</p:commandButton>
+		</p:column>
+					
+				</p:dataTable>
+			</div>
+			
+</h:body>
+</html>

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import org.apache.log4j.Logger;
 import org.hibernate.boot.model.relational.Loggable;
@@ -16,8 +17,8 @@ import org.springframework.stereotype.Controller;
 import com.formation.formation.entities.Salle;
 import com.formation.formation.metier.InterMetierSalle;
 @Controller
-@ManagedBean(name="ss")
-@RequestScoped
+@Component("ss")
+@SessionScoped
 public class SalleBean implements Serializable{
 	
 	/**
@@ -66,6 +67,13 @@ public class SalleBean implements Serializable{
 	public void suppS(){
 		s.setIdSalle(null);
 		metierSalle.deleteSalle(idSalle);
+	}
+	public void uppS(){
+		metierSalle.updateSalle(s);
+	}
+	public void getS(Long id){
+		idSalle=id;
+		s=metierSalle.getSalle(idSalle);
 	}
 	
 	
