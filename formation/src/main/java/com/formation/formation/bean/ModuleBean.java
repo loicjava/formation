@@ -25,7 +25,7 @@ public class ModuleBean {
 	
 	
 	private Module module=new Module();
-	private List<Module> tabModule=new ArrayList<Module>();
+	private List<Module> tabModule=new ArrayList<Module>(); 
 	private Long idModule;
 	
 	
