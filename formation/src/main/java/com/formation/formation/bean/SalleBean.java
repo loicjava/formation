@@ -18,7 +18,7 @@ import com.formation.formation.entities.Salle;
 import com.formation.formation.metier.InterMetierSalle;
 @Controller
 @Component("ss")
-@SessionScoped
+@RequestScoped
 public class SalleBean implements Serializable{
 	
 	/**
@@ -57,6 +57,7 @@ public class SalleBean implements Serializable{
 	/****** Methodes******/
 	
 	public Salle addS(){
+		s.setIdSalle(null);
 		return metierSalle.addSalle(this.s);
 	}
 	
@@ -65,7 +66,7 @@ public class SalleBean implements Serializable{
 		return listSalle;
 	}
 	public void suppS(){
-		s.setIdSalle(null);
+		
 		metierSalle.deleteSalle(idSalle);
 	}
 	public void uppS(){

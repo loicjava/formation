@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import com.formation.formation.metier.InterMetierModule;
 
 @Controller
 @Component("moduleBean")
-@SessionScoped
+@RequestScoped
 public class ModuleBean {
 	
 	@Autowired
@@ -54,6 +55,7 @@ public class ModuleBean {
 	
 	/*************Methode****************/
 	public void addM(){ 
+		module.setIdModule(null);
 		metierModule.addModule(this.module);
 	}
 	
@@ -61,14 +63,14 @@ public class ModuleBean {
 		tabModule = metierModule.getListModule();
 		return tabModule;
 	}
-	public void suppS(){
-		module.setIdModule(null);
+	public void suppM(){
+		
 		metierModule.deleteModule(idModule);
 	}
-	public void uppS(){
+	public void uppM(){
 		metierModule.updateModule(module);
 	}
-	public void getS(Long id){
+	public void getM(Long id){
 		idModule=id;
 		module=metierModule.getModule(idModule);
 	}

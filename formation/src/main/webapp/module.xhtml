@@ -25,8 +25,8 @@
 							<td style="width:300px;padding-bottom:10px;"><p:inputText id="nomSalle" value="#{moduleBean.module.dureeModule}" /></td>
 						</tr>
 						<tr>
-							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Capacite :" /></td>
-							<td style="width:300px;padding-bottom:10px;"><p:inputText id="capaciteSalle" value="#{module.module.description}" /></td>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Description :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="capaciteSalle" value="#{moduleBean.module.description}" /></td>
 						</tr>
 						<tr>
 							<td style="width:300px;padding-top:15px;">
@@ -46,7 +46,7 @@
 			</h:form>
 			
 <div align="center">
-				<p:dataTable  id="listsalles" var="v" value="#{moduleBean.getModules()}">
+				<p:dataTable  id="listmodule" var="v" value="#{moduleBean.getModules()}">
 				<p:column style="width:50px;">
 						<f:facet name="header">
 							<h:outputText value="ID" />
@@ -76,11 +76,11 @@
 					
 					
 					<p:column headerText="Update">
-			<p:commandButton value="Update" ajax="true" process="@this" action="usalle?faces-redirect=true"  actionListener="#{ss.getS(newStudent.idSalle)}" />
+			<p:commandButton value="Update" ajax="true" process="@this" action="umodule?faces-redirect=true"  actionListener="#{moduleBean.getM(v.idModule)}" />
 		</p:column>
 					<p:column headerText="Delete">
-			<p:commandButton value="Enlever" action="#{ss.suppS()}" ajax="true" process="@this" update="listsalles">
-				<f:setPropertyActionListener target="#{ss.idSalle}" value="#{newStudent.idSalle}" process="@this" />
+			<p:commandButton value="Enlever" action="#{moduleBean.suppM()}" ajax="true" process="@this" update="listmodule">
+				<f:setPropertyActionListener target="#{moduleBean.idModule}" value="#{v.idModule}" process="@this" />
 			</p:commandButton>
 		</p:column>
 					
