@@ -16,7 +16,7 @@ import org.springframework.stereotype.Controller;
 import com.formation.formation.entities.Salle;
 import com.formation.formation.metier.InterMetierSalle;
 @Controller
-@Component("ss")
+@ManagedBean(name="ss")
 @RequestScoped
 public class SalleBean implements Serializable{
 	
@@ -50,17 +50,22 @@ public class SalleBean implements Serializable{
 	public void setListSalle(List<Salle> listSalle) {
 		this.listSalle = listSalle;
 	}
-	
-	
+	public SalleBean() {
+		super();
+	}
 	/****** Methodes******/
 	
 	public Salle addS(){
 		return metierSalle.addSalle(this.s);
 	}
 	
-	public List<Salle> getSalle(){
+	public List<Salle> getSalles(){
 		listSalle = metierSalle.getSalles();
 		return listSalle;
+	}
+	public void suppS(){
+		s.setIdSalle(null);
+		metierSalle.deleteSalle(idSalle);
 	}
 	
 	

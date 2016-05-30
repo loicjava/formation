@@ -46,7 +46,13 @@
 			</h:form>
 			
 <div align="center">
-				<p:dataTable  var="newStudent" value="#{ss.getSalle()}">
+				<p:dataTable  id="listsalles" var="newStudent" value="#{ss.getSalles()}">
+				<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{newStudent.idSalle}" />
+					</p:column>
 					
 					<p:column style="width:50px;">
 						<f:facet name="header">
@@ -68,6 +74,11 @@
 						</f:facet>
 						<h:outputText value="#{newStudent.capaciteSalle}" />
 					</p:column>
+					<p:column headerText="Delete">
+			<p:commandButton value="Enlever" action="#{ss.suppS()}" ajax="true" process="@this" update="listsalles">
+				<f:setPropertyActionListener target="#{ss.idSalle}" value="#{newStudent.idSalle}" process="@this" />
+			</p:commandButton>
+		</p:column>
 					
 				</p:dataTable>
 			</div>
