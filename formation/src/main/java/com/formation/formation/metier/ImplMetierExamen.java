@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.formation.formation.dao.InterDaoExamen;
+import com.formation.formation.entities.Etudiant;
 import com.formation.formation.entities.Examen;
 
 @Transactional
@@ -50,6 +51,12 @@ public class ImplMetierExamen implements InterMetierExamen{
 	public Examen getExamen(Long idExamen) {
 		
 		return daoExamen.getExamen(idExamen);
+	}
+
+	@Override
+	public Etudiant getEtudiantbyE(Long idExamen) {
+		
+		return daoExamen.getEtudiantbyE(idExamen);
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.formation.formation.dao;
 
 import java.util.List;
 
+import com.formation.formation.entities.Etudiant;
 import com.formation.formation.entities.Examen;
 
 public interface InterDaoExamen {
@@ -12,5 +13,6 @@ public interface InterDaoExamen {
 	public Examen updateExamen(Examen ex);
 	public void deleteExamen(Long idExamen);
 	public Examen getExamen(Long idExamen);
+	public Etudiant getEtudiantbyE(Long idExamen);
 
 }

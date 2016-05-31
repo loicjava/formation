@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+ <h1><h:outputText value="modifier examen" /></h1>
+		<br/><br/>
+		
+		<h:form id="form">
+			<p:accordionPanel style="width:600px;">
+				<p:tab title="modifier un examen #{examenBean.e.idExamen}">
+					<table>
+					
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Date de l'examen :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputMask
+								id="dateExamen" value="#{examenBean.e.dateExamen}" mask="99-99-9999">
+								<f:convertDateTime pattern="dd-MM-yyyy" />
+							</p:inputMask></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Note :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="description" value="#{examenBean.e.noteExamen}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton value="Modifier"  action="examen?faces-redirect=true" actionListener="#{examenBean.uppE()}" ajax="true" />
+								</div>
+							</td>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton type="reset" value="Rétablir" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</p:tab>
+			</p:accordionPanel>
+			</h:form>
+			
+
+			
+</h:body>
+</html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</h:head>
+<h:body>
+ <h1><h:outputText value="Ajout d'un examen" /></h1>
+		<br/><br/>
+		
+		<h:form id="form">
+			<p:accordionPanel style="width:600px;">
+				<p:tab title="Ajout d'un examen">
+					<table>
+					<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Nom de l'examen :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="nomExamen" value="#{examenBean.e.nomExamen}" /></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Date de l'examen :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputMask
+								id="dateExamen" value="#{examenBean.e.dateExamen}" mask="99-99-9999">
+								<f:convertDateTime pattern="dd-MM-yyyy" />
+							</p:inputMask></td>
+						</tr>
+						<tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Note obtenue :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="noteExamen" value="#{examenBean.e.noteExamen}" /></td>
+						</tr>
+						 <tr>
+							<td style="width:300px;padding-bottom:10px;"><h:outputText value="idEtudiant :" /></td>
+							<td style="width:300px;padding-bottom:10px;"><p:inputText id="idEtu" value="#{examenBean.idEtu}" /></td>
+						</tr> 
+						<tr>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton value="Ajouter" action="#{examenBean.addE()}" ajax="true" />
+								</div>
+							</td>
+							<td style="width:300px;padding-top:15px;">
+								<div align="center">
+									<p:commandButton type="reset" value="Rétablir" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</p:tab>
+			</p:accordionPanel>
+			</h:form>
+			<div align="center">
+				<p:dataTable  id="listexamen" var="v" value="#{examenBean.getlistE()}">
+				<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="ID" />
+						</f:facet>
+						<h:outputText value="#{v.idExamen}" />
+					</p:column>
+					<p:column style="width:150px;">
+						<f:facet name="header">
+							<h:outputText value="nomExamen" />
+						</f:facet>
+						<h:outputText value="#{v.nomExamen}" />
+					</p:column>
+					
+					<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="Date de l'examen" />
+						</f:facet>
+						<h:outputText value="#{v.dateExamen}" />
+					</p:column>
+					
+					<p:column style="width:150px;">
+						<f:facet name="header">
+							<h:outputText value="note" />
+						</f:facet>
+						<h:outputText value="#{v.noteExamen}" />
+					</p:column>
+					<p:column style="width:150px;">
+						<f:facet name="header">
+							<h:outputText value="idEtudiant" />
+						</f:facet>
+						<h:outputText value="#{v.etudiant.idEtudiant}" />
+					</p:column>
+					
+					<p:column headerText="Update">
+			<p:commandButton value="Update" ajax="true" process="@this" action="uexamen?faces-redirect=true"  actionListener="#{examenBean.getE(v.idExamen)}" />
+		</p:column>
+					<p:column headerText="Delete">
+			<p:commandButton value="Enlever" action="#{examenBean.suppE()}" ajax="true" process="@this" update="listexamen">
+				<f:setPropertyActionListener target="#{examenBean.idExamen}" value="#{v.idExamen}" process="@this" />
+			</p:commandButton>
+		</p:column>
+					
+				</p:dataTable>
+			</div>
+
+			
+</h:body>
+</html>

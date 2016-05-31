@@ -54,7 +54,12 @@ public class ImplDaoExamen implements InterDaoExamen{
 		Examen query = (Examen) em.createQuery("from Examen e where e.idExamen ="+idExamen).getSingleResult();
 		return query;
 	}
-
+	@Override
+	public Etudiant getEtudiantbyE(Long idExamen) {
+		
+		Etudiant e=em.find(Examen.class, idExamen).getEtudiant();
+		return e;
+	}
 
 	
 }
