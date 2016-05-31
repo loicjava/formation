@@ -9,6 +9,28 @@
 	<title>Etudiant</title>
 </h:head>
 <h:body>
+	<h:form>
+		<p:tabMenu activeIndex="1">
+		    <p:menuitem value="Materiel" action="materiel?faces-redirect=true">
+		        <f:param name="i" value="0" />
+		    </p:menuitem>
+		    <p:menuitem value="Etudiant" action="etudiant?faces-redirect=true">
+		        <f:param name="i" value="1" />
+		    </p:menuitem>
+		    <p:menuitem value="Examen" action="examen?faces-redirect=true">
+		        <f:param name="i" value="2" />
+		    </p:menuitem>
+		    <p:menuitem value="Sessions" action="sessions?faces-redirect=true">
+		        <f:param name="i" value="3" />
+		    </p:menuitem>
+		    <p:menuitem value="Salle" action="salle?faces-redirect=true">
+		        <f:param name="i" value="4" />
+		    </p:menuitem>
+		    <p:menuitem value="Module" action="module?faces-redirect=true">
+		        <f:param name="i" value="5" />
+		    </p:menuitem>
+		</p:tabMenu>
+	</h:form>
 
 	<br />
 	<h1>
@@ -47,7 +69,6 @@
 				style="font-weight:bold" />
 			<p:inputText value="#{beanEtudiant.etudiant.specialiteEtudiant}" />
 
-
 			<p:commandButton value="Ajouter" action="#{beanEtudiant.addEtu()}"
 				ajax="true" />
 		</h:panelGrid>
@@ -82,7 +103,7 @@
 		<p:column headerText="Adresse">
 			<h:outputText value="#{etu.adresseEtudiant}" />
 		</p:column>
-
+ 
 		<p:column headerText="Téléphone">
 			<h:outputText value="#{etu.telEtudiant}" />
 		</p:column>
@@ -108,6 +129,9 @@
 		</p:column>
 
 	</p:dataTable>
+	
+
+
 
 
 	<br />

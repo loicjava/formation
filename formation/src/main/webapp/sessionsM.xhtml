@@ -42,10 +42,10 @@
 			</p:tab>
 		</p:accordionPanel>
 	</h:form>
-	
+	<p:accordionPanel style="width:600px;" id="listSesModule">
+	<p:tab title="Afficher la liste des module de la session d'id #{sessionBean.idSession}">
 	<div align="center">
-		<p:dataTable id="listSesModule" var="v"
-			value="#{sessionBean.tabSesMod}">
+		<p:dataTable var="v" value="#{sessionBean.getListSesMod()}">
 			<p:column style="width:50px;">
 				<f:facet name="header">
 					<h:outputText value="ID" />
@@ -74,6 +74,8 @@
 			</p:column>
 		</p:dataTable>
 	</div>
+	</p:tab>
+	</p:accordionPanel>
 	
 </h:body>
 </html>
