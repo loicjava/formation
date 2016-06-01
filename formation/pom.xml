@@ -43,7 +43,7 @@
 		<!-- Apach POI 3.13 Excel dataExporter -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
+			<artifactId>poi</artifactId> 
 			<version>3.13</version>
 		</dependency>
 		
