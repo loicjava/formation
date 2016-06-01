@@ -11,24 +11,24 @@
 <h:body>
 	<h:form>
 		<p:tabMenu activeIndex="1">
-		    <p:menuitem value="Materiel" action="materiel?faces-redirect=true">
-		        <f:param name="i" value="0" />
-		    </p:menuitem>
-		    <p:menuitem value="Etudiant" action="etudiant?faces-redirect=true">
-		        <f:param name="i" value="1" />
-		    </p:menuitem>
-		    <p:menuitem value="Examen" action="examen?faces-redirect=true">
-		        <f:param name="i" value="2" />
-		    </p:menuitem>
-		    <p:menuitem value="Sessions" action="sessions?faces-redirect=true">
-		        <f:param name="i" value="3" />
-		    </p:menuitem>
-		    <p:menuitem value="Salle" action="salle?faces-redirect=true">
-		        <f:param name="i" value="4" />
-		    </p:menuitem>
-		    <p:menuitem value="Module" action="module?faces-redirect=true">
-		        <f:param name="i" value="5" />
-		    </p:menuitem>
+			<p:menuitem value="Materiel" action="materiel?faces-redirect=true">
+				<f:param name="i" value="0" />
+			</p:menuitem>
+			<p:menuitem value="Etudiant" action="etudiant?faces-redirect=true">
+				<f:param name="i" value="1" />
+			</p:menuitem>
+			<p:menuitem value="Examen" action="examen?faces-redirect=true">
+				<f:param name="i" value="2" />
+			</p:menuitem>
+			<p:menuitem value="Sessions" action="sessions?faces-redirect=true">
+				<f:param name="i" value="3" />
+			</p:menuitem>
+			<p:menuitem value="Salle" action="salle?faces-redirect=true">
+				<f:param name="i" value="4" />
+			</p:menuitem>
+			<p:menuitem value="Module" action="module?faces-redirect=true">
+				<f:param name="i" value="5" />
+			</p:menuitem>
 		</p:tabMenu>
 	</h:form>
 
@@ -50,9 +50,7 @@
 
 			<h:outputLabel for="dateetu" value="Date de naissance :"
 				style="font-weight:bold" />
-			<p:inputText value="#{beanEtudiant.etudiant.dateNaissanceEtudiant}">
-				<f:convertDateTime pattern="dd-MM-yyyy" />
-			</p:inputText>
+        	<p:calendar value="#{beanEtudiant.etudiant.dateNaissanceEtudiant}" locale="de" navigator="true" pattern="yyyy-MMM-dd"/>
 
 			<h:outputLabel for="adresseetu" value="Adresse :"
 				style="font-weight:bold" />
@@ -68,6 +66,17 @@
 			<h:outputLabel for="specialiteetu" value="Spécialité :"
 				style="font-weight:bold" />
 			<p:inputText value="#{beanEtudiant.etudiant.specialiteEtudiant}" />
+
+			<h:outputLabel for="sessionetu" value="Session :"
+				style="font-weight:bold" />
+			<p:selectOneMenu id="sesetu" value="#{beanEtudiant.idSession}"
+				style="width:125px">
+				<f:selectItem itemLabel="Sélectionnez" itemValue=""
+					noSelectionOption="true" />
+				<f:selectItems value="#{sessionBean.getList()}" var="sessions"
+					itemValue="#{sessions.idSession}"
+					itemLabel="#{sessions.nomSession}" />
+			</p:selectOneMenu>
 
 			<p:commandButton value="Ajouter" action="#{beanEtudiant.addEtu()}"
 				ajax="true" />
@@ -103,7 +112,7 @@
 		<p:column headerText="Adresse">
 			<h:outputText value="#{etu.adresseEtudiant}" />
 		</p:column>
- 
+
 		<p:column headerText="Téléphone">
 			<h:outputText value="#{etu.telEtudiant}" />
 		</p:column>
@@ -114,7 +123,7 @@
 
 		<p:column headerText="Spécialité">
 			<h:outputText value="#{etu.specialiteEtudiant}" />
-		</p:column> 
+		</p:column>
 
 		<p:column headerText="">
 			<p:commandButton value="Modifier" ajax="true" process="@this"
@@ -129,8 +138,50 @@
 		</p:column>
 
 	</p:dataTable>
+	<br/>
 	
+<p:commandButton value="Imprimer la liste des etudiants"  ajax="true" process="@this" action="etudiantb?faces-redirect=true" />
+	<br />
+	<br />
+	<br />
 
+	<h1>
+		<h:outputText value="Ajout d'un matériel pour un étudiant" />
+	</h1>
+
+	<h:form>
+
+		<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+				value="Etudiant :" /></td>
+		<td style="width: 300px; padding-bottom: 10px;"><p:selectOneMenu
+				id="idetu" value="#{beanEtudiant.idEtudiant}" style="width:125px">
+				<f:selectItem itemLabel="Sélectionnez" itemValue=""
+					noSelectionOption="true" />
+				<f:selectItems value="#{beanEtudiant.getListEtu()}" var="etudiant"
+					itemValue="#{etudiant.idEtudiant}"
+					itemLabel="#{etudiant.nomEtudiant}" />
+			</p:selectOneMenu></td>
+
+		<br />
+
+		<td style="width: 300px; padding-bottom: 10px;"><h:outputText
+				value="Materiel :" /></td>
+		<td style="width: 300px; padding-bottom: 10px;"><p:selectOneMenu
+				id="idmat" value="#{beanEtudiant.idMateriel}" style="width:125px">
+				<f:selectItem itemLabel="Sélectionnez" itemValue=""
+					noSelectionOption="true" />
+				<f:selectItems value="#{materielBean.getList()}" var="materiel"
+					itemValue="#{materiel.idMateriel}"
+					itemLabel="#{materiel.nomMateriel}" />
+			</p:selectOneMenu></td>
+
+		<br />
+
+		<p:commandButton value="Ajouter"
+			actionListener="#{beanEtudiant.addMatToEtu()}" ajax="true" />
+
+
+	</h:form>
 
 
 
