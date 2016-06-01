@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Etudiant</title>
+</h:head>
+<h:body>
+	
+
+	
+			<div align="center">
+			<h:form >
+				<p:dataTable id="studentTable" var="etu" value="#{beanEtudiant.getListEtu()}" 
+							 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+							 paginator="true" rows="10" style="width:910px;margin-bottom:20px;">
+			
+					<f:facet name="{Exporters}">
+						<p:commandLink ajax="false" style="float:right;" >
+							  <p:graphicImage name="/images/pdf.png" width="24" />
+							<p:dataExporter type="pdf" target="studentTable" fileName="etudiant" />
+							
+						</p:commandLink >
+					</f:facet>
+					
+					<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="Nom" />
+						</f:facet>
+			<h:outputText value="#{etu.nomEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="Prenom" />
+						</f:facet>
+			<h:outputText value="#{etu.prenomEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="date de naissance" />
+						</f:facet>
+			<h:outputText value="#{etu.dateNaissanceEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="adresse" />
+						</f:facet>
+			<h:outputText value="#{etu.adresseEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="tel" />
+						</f:facet>
+			<h:outputText value="#{etu.telEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="mail" />
+						</f:facet>
+			<h:outputText value="#{etu.mailEtudiant}" />
+		</p:column>
+
+		<p:column style="width:50px;">
+						<f:facet name="header">
+							<h:outputText value="specialite" />
+						</f:facet>
+			<h:outputText value="#{etu.specialiteEtudiant}" />
+		</p:column>
+					
+				</p:dataTable>
+				</h:form>
+			</div>
+			
+<p:commandButton value="Retour a la page etudiant"  ajax="true" process="@this" action="etudiant?faces-redirect=true" />
+</h:body>
+</html>
