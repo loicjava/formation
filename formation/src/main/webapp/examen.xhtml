@@ -38,6 +38,7 @@
 		
 		<h:form id="form">
 			<p:accordionPanel style="width:600px;">
+			<p:messages autoUpdate="true"/>
 				<p:tab title="Ajout d'un examen">
 					<table>
 					<tr>
@@ -49,12 +50,19 @@
 									value="Date de l'examen :" /></td>
 							<td style="width: 300px; padding-bottom: 10px;"><p:calendar
 									value="#{examenBean.e.dateExamen}"
-									locale="de" navigator="true" pattern="yyyy-MMM-dd" /></td>
+									mindate="2010-01-01"
+									locale="de" navigator="true" pattern="yyyy-MM-dd" /></td>
 						</tr>
 						<tr>
-							<td style="width:300px;padding-bottom:10px;"><h:outputText value="Note obtenue :" /></td>
-							<td style="width:300px;padding-bottom:10px;"><p:inputText id="noteExamen" value="#{examenBean.e.noteExamen}" /></td>
-						</tr>
+						<td style="width:300px;padding-bottom:10px;"><h:outputLabel for="number" value="Note:"
+							style="font-weight:bold" /></td>
+						<td style="width:300px;padding-bottom:10px;"><p:inputText id="number" value="#{examenBean.e.noteExamen}"
+							label="Number">
+							<f:validateDoubleRange minimum="0" maximum="20" />
+						</p:inputText></td>
+						<p:message for="number" />
+						<h:outputText value="" />
+					</tr>
 						 <tr>
 							<td style="width:300px;padding-bottom:10px;"><h:outputText value="idEtudiant :" /></td>
 							<td style="width:300px;padding-bottom:10px;"><p:inputText id="idEtu" value="#{examenBean.idEtu}" /></td>
@@ -62,7 +70,8 @@
 						<tr>
 							<td style="width:300px;padding-top:15px;">
 								<div align="center">
-									<p:commandButton value="Ajouter" action="#{examenBean.addE()}" ajax="true" />
+									
+									<p:commandButton value="Ajouter"  action="#{examenBean.addE()}" ajax="true" update="form listexamen" icon="ui-icon-check" validateClient="true" style="margin-right:10px"/>
 								</div>
 							</td>
 							<td style="width:300px;padding-top:15px;">
@@ -110,10 +119,10 @@
 						<h:outputText value="#{v.etudiant.idEtudiant}" />
 					</p:column>
 					
-					<p:column headerText="Update">
+					<p:column headerText="Update" style="width:150px;">
 			<p:commandButton value="Update" ajax="true" process="@this" action="uexamen?faces-redirect=true"  actionListener="#{examenBean.getE(v.idExamen)}" />
 		</p:column>
-					<p:column headerText="Delete">
+					<p:column headerText="Delete" style="width:150px;">
 			<p:commandButton value="Enlever" action="#{examenBean.suppE()}" ajax="true" process="@this" update="listexamen">
 				<f:setPropertyActionListener target="#{examenBean.idExamen}" value="#{v.idExamen}" process="@this" />
 			</p:commandButton>
